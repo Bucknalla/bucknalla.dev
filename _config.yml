@@ -53,6 +53,11 @@ companies:
     description: Hardware Engineer
     date: 2018 - Present
 
+  - name: University of Warwick
+    web_url: https://warwick.ac.uk
+    image_url: /assets/icons/warwick-logo.png
+    description: PhD Researcher
+
   - name: Pycom
     web_url: https://pycom.io
     image_url: /assets/icons/pycom-logo.png

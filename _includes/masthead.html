@@ -20,6 +20,12 @@
         </a>
       </div>
     {% endif %}
+    <div class="{{ metadata_styles }}">
+      {% octicon mortar-board height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:Education %}
+      <a href="https://www.linkedin.com/in/bucknalla/#education-section" {% if site.style == 'dark' %}class="text-white"{% endif %}>
+        BEng - EE - University of Warwick
+      </a>
+    </div>
     {% if user.email %}
       <div class="{{ metadata_styles }}">
         {% octicon mail height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:email %}
@@ -55,7 +61,7 @@
       </div>
     {% endif %}
     {% if user.hireable %}
-      <span title="Hire me" class="d-inline-block f5 rounded-2 text-white bg-green py-1 px-2">Available for hire</span>
+      <span title="Hire me" class="d-inline-block f5 rounded-2 text-white bg-blue py-1 px-2">Available for hire</span>
     {% endif %}
   </div>
 {% endif %}

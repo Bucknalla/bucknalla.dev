@@ -99,7 +99,8 @@ I've included a Huawei ME909s-120 Cellular Modem (Mini PCI-E) with this blog pos
 
 I was impressed by how easy it was to get up and running with this modem. As soon as I had added the config for [Network Manager](https://docs.resin.io/reference/resinOS/network/2.x/) (which works in conjunction with [ModemManager](https://www.freedesktop.org/wiki/Software/ModemManager/)), the Fin immediately picked it up and started transmitting data. I've included the config file for using [Hologram's](https://hologram.io/) Network below:
 
-{% highlight bash %}[connection]
+```bash
+[connection]
 id=resin-cellular
 type=gsm
 autoconnect=true
@@ -117,8 +118,7 @@ method=auto
 [ipv6]
 addr-gen-mode=stable-privacy
 method=ignore
-
-{% endhighlight %}
+```
 
 Be cautious that this Network Manager config will immediately fire up the Cellular Modem begin transmitting your data over 3G/4G. This will spend your data allowance very quickly if you're not careful!
 
