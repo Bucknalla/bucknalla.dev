@@ -63,3 +63,12 @@
 .highlight .lineno {-webkit-user-select: none;-moz-user-select: none; -o-user-select: none;}
 .lineno::-moz-selection {background-color: transparent;} /* Mozilla specific */
 .lineno::selection {background-color: transparent;} /* Other major browsers */
+
+img { 
+    display: block; 
+    margin: auto; 
+}
+
+figcaption {
+    text-align: center
+}

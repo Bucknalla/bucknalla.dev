@@ -5,6 +5,7 @@ plugins:
   - jekyll-octicons
   - jekyll-github-metadata
   - jemoji
+  - jekyll-scholar
 
 permalink: /:year/:month/:day/:title/
 
@@ -15,6 +16,9 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+scholar:
+  style: mla
 
 projects:
   sort_by: pushed
@@ -57,36 +61,44 @@ companies:
     web_url: https://warwick.ac.uk
     image_url: /assets/icons/warwick-logo.png
     description: PhD Researcher
+    date: 2017 - Present
 
   - name: Pycom
     web_url: https://pycom.io
     image_url: /assets/icons/pycom-logo.png
     description: Lead Developer Evangelist
+    date: 2017 - 2017
 
   - name: Sigfox
     web_url: https://sigfox.com
     image_url: /assets/icons/sigfox-logo.png
     description: Developer Evangelist (EU)
+    date: 2016 - 2017
 
   - name: MLH
     web_url: https://mlh.io
     image_url: /assets/icons/mlh-logo.png
     description: Coach
+    date: 2016 - 2018
 
   - name: WarwickTECH
     web_url: https://warwick.tech
     image_url: /assets/icons/wt-logo.jpg
     description: Founder
+    date: 2014 - 2016
 
 topics:
   - name: Research
     web_url: https://scholar.google.co.uk/citations?user=XEkhqpkAAAAJ
     image_url: https://scholar.google.co.uk/citations/images/avatar_scholar_128.png
+    description: Papers I've published
 
   - name: Strava
     web_url: https://www.strava.com/athletes/27732546
-    image_url: https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/323_Strava_logo-512.png
+    image_url: /assets/icons/strava-interest.png
+    description: Races I'm training for
 
   - name: Thingiverse
     web_url: https://www.thingiverse.com/bucknalla/about
     image_url: https://img.revinate.com/image/upload/jzy3us6lgnyx5jixc8cv.png
+    description: Thing's I've designed

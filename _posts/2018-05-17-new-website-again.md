@@ -3,8 +3,13 @@ layout: post
 title:  "New Website... Again!"
 date:   2018-05-17 13:46:52
 comments: true
-image: https://jekyllrb.com/img/octojekyll.png
 categories: website update
+description: "Brief overview of SDR and learning resources"
+keywords: "SDR"
+image: /images/zed-sdr.png
+category: blog
+tags:
+- sdr
 ---
 
 I've been messing around with website designs that I like (again... I know) and finally settled on something simple that I like. The new site is built on top of the Jekyll framework making it easier to upload content. Hopefully the new and improved website will encourage me to write more blog posts, documenting my research and personal projects.
