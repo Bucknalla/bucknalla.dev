@@ -10,8 +10,7 @@ plugins:
 permalink: /:year/:month/:day/:title/
 
 defaults:
-  -
-    scope:
+  - scope:
       path: "" # an empty string here means all files in the project
       type: "posts"
     values:
@@ -54,14 +53,14 @@ companies:
   - name: Balena
     web_url: https://balena.io
     image_url: /assets/icons/balena-logo.png
-    description: Hardware Engineer
+    description: Software Engineer (Hardware)
     date: 2018 - Present
 
   - name: University of Warwick
     web_url: https://warwick.ac.uk
     image_url: /assets/icons/warwick-logo.png
     description: PhD Researcher
-    date: 2017 - Present
+    date: 2017 - 2022
 
   - name: Pycom
     web_url: https://pycom.io
