@@ -7,7 +7,7 @@ image: /images/resin-fin.jpg
 categories: review resin
 ---
 
-I've been lucky enough to get my hands on an early production version of the [Resin Fin](https://resin.io/blog/introducing-project-fin-a-board-for-fleet-owners/), as I'm working on a gateway-like platform for a client. I was intrigued when I first heard that Resin was making their own hardware as industrialised IoT platforms, especially those using the Raspberry Pi (RPi) Compute Module, are few and far between. 
+I've been lucky enough to get my hands on an early production version of the [Resin Fin](https://resin.io/blog/introducing-project-fin-a-board-for-fleet-owners/), as I'm working on a gateway-like platform for a client. I was intrigued when I first heard that Resin was making their own hardware as industrialised IoT platforms, especially those using the Raspberry Pi (RPi) Compute Module, are few and far between.
 
 Resin has included some interesting features with the Fin, such as the addition of a Samsung Artik 020 co-processor as well as a mini PCI-E expansion socket (along with a nano-sim reader). Although I've had the Fin for a couple of weeks now, I intend to follow up this blog post with more details when Resin releases their public documentation for the device as there are still some pre-production complexities with software and set up.
 
@@ -15,7 +15,7 @@ Please take note that this is an initial impressions and not a my final opinion 
 
 #### What is Resin?
 
-For those reading this initial impressions post and are unfamiliar with [Resin](https://resin.io/), Resin is a scalable platform for managing fleets of IoT devices. It's built around a containerized Linux operating system that runs on deployed devices (think Docker for IoT). This allows you to remotely implement version control, monitoring and provisioning across a fleet of devices whilst maintaining a high level of reliability, inherent from the containerization. As all the application that you deploy are loaded into containers, you can maintain a code base across a range of different hardware so long as it has support for [Resin OS](https://resinos.io/). Additionally, this means that devices are almost impossible to accidentally bricked in the field as applications are restricted to their own containers. 
+For those reading this initial impressions post and are unfamiliar with [Resin](https://resin.io/), Resin is a scalable platform for managing fleets of IoT devices. It's built around a containerized Linux operating system that runs on deployed devices (think Docker for IoT). This allows you to remotely implement version control, monitoring and provisioning across a fleet of devices whilst maintaining a high level of reliability, inherent from the containerization. As all the application that you deploy are loaded into containers, you can maintain a code base across a range of different hardware so long as it has support for [Resin OS](https://resinos.io/). Additionally, this means that devices are almost impossible to accidentally bricked in the field as applications are restricted to their own containers.
 
 Although it's a little more to it than in the image below, this gives a good understanding of the steps involved with deploying code and the feedback loop between hardware and the programmer.
 
@@ -28,7 +28,7 @@ The Fin is Resin's own take on what the hardware that powers Resin OS should loo
 
 ## The Hardware
 
-From a hardware perspective, the Resin Fin offers a number of interesting technologies with an emphasis its on gateway-esq features. It's clear from the Fin's offering, that Resin sees this platform as an enabler of dependant devices (e.g. microcontrollers that use the Fin as a communication hub). By default, the Fin offers Dual-band 2.4 & 5 GHz support as well as Bluetooth 4.2 - good all around local area connectivity. 
+From a hardware perspective, the Resin Fin offers a number of interesting technologies with an emphasis its on gateway-esq features. It's clear from the Fin's offering, that Resin sees this platform as an enabler of dependant devices (e.g. microcontrollers that use the Fin as a communication hub). By default, the Fin offers Dual-band 2.4 & 5 GHz support as well as Bluetooth 4.2 - good all around local area connectivity.
 
 #### Form Factor
 
@@ -73,7 +73,7 @@ The Compute Module 3 Lite (CM3L) is a nice feature for the Fin as it provides an
 
 #### Artik 020 Co-Processor
 
-The [Artik 020](https://www.artik.io/modules/artik-020/) co-processor is an interesting addition to the Fin as it allows for the entire compute module to be powered down and up, programmatically. The Artik is also on the same I2C bus as the Fin's Real Time Clock (RTC) and can use this to track sleep timings. 
+The [Artik 020](https://www.artik.io/modules/artik-020/) co-processor is an interesting addition to the Fin as it allows for the entire compute module to be powered down and up, programmatically. The Artik is also on the same I2C bus as the Fin's Real Time Clock (RTC) and can use this to track sleep timings.
 
 I'm yet to use the Artik 020 in an application but I could see this being useful if using the Fin in a power conservative situation such as relying on a battery + solar power solution. It might also find use with using the Artik's on board Bluetooth module for detecting the presence of external devices and using this as an interrupt to wake the Fin.
 
@@ -128,18 +128,19 @@ It's also worth mentioning that the Artik 020 has it's own Bluetooth Modem and c
 
 From a software perspective, the Fin is basically the same device as any other device that's running Resin OS and that's the beauty of it! It shouldn't be any different from a software perspective as all Resin OS devices abstract their hardware through the wonders of the [Balena](https://www.balena.io/) container engine.
 
-#### The Setup Process
+### The Setup Process
 
 I'm cautious to comment on this as I understand that the Fin is still in development and that the Software/Set up Guides are not yet publicly exposed. I did find this somewhat convoluted and the instructions to be a little sparse but again, I have a pre-production device so this is to be expected!
 
 To set the Fin up, I had to put the device into debug mode (connecting up the DBG micro USB port) which exposes the boot partition of the compute module. To do this on Linux (Debian), I was required to install the Raspberry Pi Foundation's "[usbboot](https://github.com/raspberrypi/usbboot)" tool which is designed to access the boot partitions of the Compute Modules. Although a little confusing at first as to what was going on, this worked flawlessly and I was almost immediately granted access to the boot partitions on the device. Below are the commands required for usbboot under Linux.
 
-{% highlight bash %}$ git clone --depth=1 https://github.com/raspberrypi/usbboot
-$ cd usbboot
-$ sudo apt-get install libusb-1.0-0-dev
-$ make
-$ sudo ./rpiboot
-{% endhighlight %} 
+```bash
+git clone --depth=1 <https://github.com/raspberrypi/usbboot>
+cd usbboot
+sudo apt-get install libusb-1.0-0-dev
+make
+sudo ./rpiboot
+```
 
 I'm aware that this usbboot functionality is being built into Resin's [Etcher](https://etcher.io/) tool, so I withhold my criticism of this as set up tool, as Etcher is a fantastic tool for flashing OS images to SD cards and other types of storage media (i.e. it just works!). At present, you are required to used usbboot for the Fin to appear as a selectable target location under etcher, so run usbboot and then fire up Etcher and you should see your Fin device.
 
@@ -158,10 +159,11 @@ Although intended for use with Resin OS, there's nothing dictating that this har
 
 What's nice about resin is that all it takes is a simple git push and you can iterate on the version of code running on your device. Once you've followed resin's installation instructions, loaded Resin OS onto your device and added your git remote for your resin branch, all you need is the following:
 
-{% highlight bash %}$ git add . 
-$ git commit -m "Your commit to build for Resin" 
-$ git push resin master
-{% endhighlight %} 
+```bash
+git add .
+git commit -m "Your commit to build for Resin"
+git push resin master
+```
 
 And your code is pushed/built to a docker container at Resin.io before being forward onto your Resin OS device (if the image builds and deploys successfully). Resin does a nice job of informing you of build issues in its command line tool and will help you to debug any build failures.
 
@@ -171,6 +173,6 @@ A feature that I'd like to see from Resin (which amazingly, they've already adde
 
 ## Closing Thoughts & Impressions
 
-Overall, I'm very impressed with the Fin and I think Resin have done a great job positioning its features and use case towards a clear gap in the market. The Fin will inevitably find its way to the maker audience but I think it'll find a nice home in many industrial use cases. The Fin has all the right tools for supporting dependent device applications with its capable 2.4 & 5 GHz connectivity options. Combining this with the Fin's ability to connect mini-PCIE radio interfaces (LoRaWAN, LTE, Zigbee, etc.) and Resin's powerful  OS means that the Fin is a also very capable gateway. I'm eager to see how Resin build the product with documentation and support as they've already laid the foundations for solid industrial applications. 
+Overall, I'm very impressed with the Fin and I think Resin have done a great job positioning its features and use case towards a clear gap in the market. The Fin will inevitably find its way to the maker audience but I think it'll find a nice home in many industrial use cases. The Fin has all the right tools for supporting dependent device applications with its capable 2.4 & 5 GHz connectivity options. Combining this with the Fin's ability to connect mini-PCIE radio interfaces (LoRaWAN, LTE, Zigbee, etc.) and Resin's powerful  OS means that the Fin is a also very capable gateway. I'm eager to see how Resin build the product with documentation and support as they've already laid the foundations for solid industrial applications.
 
-I'm excited to see where the Fin ends up being deployed and I can already see application spaces such as the [thingsnetwork](https://www.thethingsnetwork.org/) being a great examples. If you want to dive into using the Fin as a gateway, I'd recommend checking out the [Edge Node Manager](https://github.com/resin-io/edge-node-manager) as well as an image I've written for [Firmware Over the Air with Pycom devices](https://github.com/Bucknalla/resin-pycom-ota). 
+I'm excited to see where the Fin ends up being deployed and I can already see application spaces such as the [thingsnetwork](https://www.thethingsnetwork.org/) being a great examples. If you want to dive into using the Fin as a gateway, I'd recommend checking out the [Edge Node Manager](https://github.com/resin-io/edge-node-manager) as well as an image I've written for [Firmware Over the Air with Pycom devices](https://github.com/Bucknalla/resin-pycom-ota).

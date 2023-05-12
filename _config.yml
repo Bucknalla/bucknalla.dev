@@ -6,8 +6,12 @@ plugins:
   - jekyll-github-metadata
   - jemoji
   - jekyll-scholar
+  - jekyll-mermaid
 
 permalink: /:year/:month/:day/:title/
+
+mermaid:
+  src: 'assets/js/mermaid.js'
 
 defaults:
   - scope:
@@ -21,43 +25,36 @@ scholar:
 
 projects:
   sort_by: pushed
-  # sort_by options:
-  #   - pushed
-  #   - stars
-  limit: 6
+  sort_by options:
+    - pushed
+  limit: 9
   exclude:
     archived: false
     forks: false
     projects:
-    # - repo-name
+    - test-fin
+    - cookbook
 
 social_media:
-  # behance: your_username
-  # dribbble: your_username
-  # facebook: your_username
-  # hackerrank: your_username
-  # instagram: your_username
   twitter: AlexRBucknall
   linkedin: bucknalla
   scholar: XEkhqpkAAAAJ
-  # mastodon: your_username
-  # medium: your_username
-  # stackoverflow: your_user_id
-  # telegram: your_username
-  # unsplash: your_username
-  # vk: your_username
-  # website: http://your_website_url
-  # youtube: your_username
 
 companies:
+  - name: Arribada
+    web_url: https://arribada.org
+    image_url: /assets/icons/arribada-logo.png
+    description: Senior Software Engineer (Embedded)
+    date: 2023 - Present
+
   - name: Balena
     web_url: https://balena.io
     image_url: /assets/icons/balena-logo.png
     description: Software Engineer (Hardware)
-    date: 2018 - Present
+    date: 2018 - 2023
 
   - name: University of Warwick
-    web_url: https://warwick.ac.uk
+    web_url: https://warwick.ac.uk/fac/sci/eng/research/grouplist/connectedsystems/warc
     image_url: /assets/icons/warwick-logo.png
     description: PhD Researcher
     date: 2017 - 2022
@@ -84,7 +81,7 @@ companies:
     web_url: https://warwick.tech
     image_url: /assets/icons/wt-logo.jpg
     description: Founder
-    date: 2014 - 2016
+    date: 2014 - 2017
 
 topics:
   - name: Research
@@ -100,4 +97,4 @@ topics:
   - name: Thingiverse
     web_url: https://www.thingiverse.com/bucknalla/about
     image_url: https://img.revinate.com/image/upload/jzy3us6lgnyx5jixc8cv.png
-    description: Thing's I've designed
+    description: Things I've designed
