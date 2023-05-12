@@ -7,6 +7,12 @@ plugins:
   - jemoji
   - jekyll-scholar
   - jekyll-mermaid
+  - kramdown
+
+kramdown:
+  syntax_highlighter: rouge
+  input: GFM
+
 
 permalink: /:year/:month/:day/:title/
 

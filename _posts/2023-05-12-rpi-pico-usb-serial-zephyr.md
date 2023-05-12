@@ -9,18 +9,18 @@ comments: true
 category: zephyr
 ---
 
-## Raspberry Pico Serial Demo for Zephyr RTOS
+![Pico Zephyr](/assets/images/pico-zephyr.png)
 
-Example project for a simple USB Serial using the Raspberry Pi Pico, using Zephyr RTOS.
-There are a number of USB Serial examples for different Zephyr supported devices but few that are up-to-date with the latest version of Zephyr (3.3.99 at the time of writing).
+This is an example project for a simple USB Serial using the Raspberry Pi Pico, using Zephyr RTOS.
+There are a number of sample USB Serial for different Zephyr supported devices but few that are up-to-date with the latest version of Zephyr (currently [v3.3.0](https://github.com/zephyrproject-rtos/zephyr/releases/tag/v3.3.0)) and even fewer targeting the RPi Pico.
 
-This is a simple demo for how get a Serial Console from the RPi Pico over USB CDC ACM.
+This blog post refers to this [simple demo repository](https://github.com/Bucknalla/pico-zephyr-serial) for how get a 'Serial Console from the RPi Pico over USB CDC ACM'.
 
 ## Setting up your project
 
 The following files are required to enable a USB Serial Console on the RPi Pico.
 
-### prj.conf
+### [prj.conf](https://github.com/Bucknalla/pico-zephyr-serial/blob/main/prj.conf)
 
 The `*.conf` file is used by Zephyr as a `Kconfig` file, which specifies which kernel configuration options should be used for this application.
 These settings are used along with the board/device specific settings to generate a specific Zephyr kernel configuration.
@@ -40,7 +40,7 @@ CONFIG_UART_LINE_CTRL=y # This enables the API for apps to control the serial li
 
 If you're unsure of what a specific option does, the Zephyr Docs helpfully provide a [nice tool](https://docs.zephyrproject.org/latest/kconfig.html) for searching for each mainline config does.
 
-### app.overlay
+### [app.overlay](https://github.com/Bucknalla/pico-zephyr-serial/blob/main/app.overlay)
 
 Device Tree Overlays can be used by a Zephyr application to specify new hardware or re-assign existing hardware.
 In our application, we'll use the `app.overlay` to inform Zephyr that we want to have a USB CDC ACM device.
@@ -75,10 +75,11 @@ Since the kernel mainly deals with devices, any new device node that result in a
 
 In our case, we know that the RPi Pico board has a `zephyr_udc0` (USB device controller) node and we update the node to specify that we want this to be a CDC ACM type device, specifically compatible with `"zephyr,cdc-acm-uart"`.
 
-### .vscode/c_cpp_properties.json
+### [.vscode/c_cpp_properties.json](https://github.com/Bucknalla/pico-zephyr-serial/blob/main/.vscode/c_cpp_properties.json)
 
-This file, while not specific to Zephyr, is helpful when developing Zephyr Applications using VSCode as it allows the C/CPlusPlus [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) tools to resolve the missing header/includes for your Zephyr libraries.
+This file, while not specific to Zephyr, is helpful when developing Zephyr Applications using VSCode as it allows the C/C++ [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) tools to resolve the missing header/includes for your Zephyr libraries.
 Without this `.vscode/c_cpp_properties.json` file in your project (and then ), you won't get any of the helpful tooltips that instruct you about specific functions or data structures.
+You may have to tailor this more specifically to your workspace but it should be a helpful starting point!
 
 ## Glossary
 
