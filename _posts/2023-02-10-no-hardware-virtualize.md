@@ -18,7 +18,8 @@ tags:
 - macos
 ---
 
-![Header](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-header.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-header.png"  width="100%">
+<!-- ![Header](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-header.png) -->
 
 Finding hardware to develop on in 2023 can be difficult; Why not develop your applications directly on your development machine? This blog post walks you through setting up a virtual balena device, in a virtual machine (VM), on MacOS (using a GUI). We'll specifically focus on getting up and running with an unmanaged virtual aarch64 device, that you can join to a fleet using the balena-cli.
 
@@ -38,50 +39,61 @@ You can choose to skip ahead and download our [.utm file](https://drive.google.c
 
 Ensure you have installed [UTM](https://mac.getutm.app/) and [balena-cli](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md).
 
-![Download balenaOS](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-13.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-13.png"  width="100%">
+<!-- ![Download balenaOS](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-13.png) -->
 
 First download the development variant of the generic `aarch64` balenaOS image and extract the zip file. You should now have a `.img` file for your chosen version of balenaOS.
 
-![Open UTM and create new VM](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-1.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-1.png"  width="100%">
+<!-- ![Open UTM and create new VM](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-1.png) -->
 
 Now open UTM and create a new `virtual machine`.
 
-![Select Virtualize or Emulate](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-17.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-17.png"  width="100%">
+<!-- ![Select Virtualize or Emulate](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-17.png) -->
 
 If you are using an ARM64 MacBook (M1, M2, etc.), select `virtualize`, otherwise select `emulate`.
 
-![Select Other OS](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-15.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-15.png"  width="100%">
+<!-- ![Select Other OS](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-15.png) -->
 
 Select `other` for operating system.
 
-![Skip ISO boot](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-4.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-4.png"  width="100%">
+<!-- ![Skip ISO boot](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-4.png) -->
 
 Select `skip ISO boot`.
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-22.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-22.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-22.png) -->
 
 Allocate at least `512MB` (balenaOS requirement) of memory, ideally `1024MB`.
 Optionally, allocate more CPU cores.
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-21.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-21.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-21.png) -->
 
 Leave storage size for now.
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-10.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-10.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-10.png) -->
 
 Leave the option to share directories, `unselected`.
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-12.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-12.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-12.png) -->
 
 Now name and save your selection. I chose `balenaOS (aarch64)` as the name.
 
 ## Configuring the Virtual Machine
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-7.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-7.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-7.png) -->
 
 You should be back at the menu again, select your new `VM` (1) and click the `edit` button (2).
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-2.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-2.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-2.png) -->
 
 I’ve added a `custom icon` (1) to make it easier for me to find, however this is optional.
 
@@ -89,11 +101,13 @@ Click on `VirtIO Drive` (2).
 
 ### Drives
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-19.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-19.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-19.png) -->
 
 Now delete this `drive` (1) and create a `new drive` (2).
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-16.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-16.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-16.png) -->
 
 Set this to a reasonable size, ideally at least `16GB` (1), and import the extracted balenaOS `.img` file from the earlier step (2).
 
@@ -101,29 +115,34 @@ Now click the `resize` button and expand the disk to something appropriate for y
 
 ### Serial Terminal
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-5.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-5.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-5.png) -->
 
 Next you need to add a `Serial` terminal. Click `New` (1) and leave the default options on `Serial` terminal.
 
 ### Display (Optional)
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-3.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-3.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-3.png) -->
 
 If you’d like to add a display to your device, you can do so by editing the `Display` (1) and selecting `virtio-gpu-gl-pci` (2). Alternatively, you can remove the display entirely and just use the `Serial` if you like.
 
 ### Networking
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-8.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-8.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-8.png) -->
 
 Next you’ll need to update the `Network` (1) to use a `Bridged Network` (2) instead. Again, leave the settings as default.
 
 ## Powering on your VM
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-11.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-11.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-11.png) -->
 
 Now you should be able to power on your virtual machine (1).
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-18.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-18.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-18.png) -->
 
 Allow the terminal/console to appear and boot into a login prompt. This may take a couple of minutes. If you want, you can access the shell by entering the username `root`. Take note of the `uuid` specified before `login`, in this example it is `71f42fa`.
 
@@ -131,15 +150,18 @@ Allow the terminal/console to appear and boot into a login prompt. This may take
 
 Congratulations, your virtual balenaOS device is online! Currently this virtual device is `unmanaged` meaning that it is not attached to a fleet. To connect or `join` the device to a fleet you will need to use the `balena-cli`.
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-14.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-14.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-14.png) -->
 
 Open your favourite terminal application, ensure you have `balena-cli` installed then run the following command, `balena join <uuid>.local`, where `<uuid>` is the device's UUID from the previous step, e.g. `71f42fa`.
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-6.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-6.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-6.png) -->
 
 You’ll then be able to choose one of your balenaCloud fleets to `join` the device to. If you don't see any `fleets`, you may need to create one on [balenaCloud](https://dashboard.balena-cloud.com) first (create a fleet for the `Generic AARCH64` device type).
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-20.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-20.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-20.png) -->
 
 Visit [balenaCloud](https://dashboard.balena-cloud.com) to check that the device has joined fleet that you expected it to. Don’t forget your **first 10 devices on balenaCloud are free**!
 
@@ -149,7 +171,8 @@ At balena, we enjoy the flexibility of using virtual devices to develop and test
 
 There’s a few fun extra features I use on a day-to-day basis to help with development work.
 
-![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-9.png)
+<img src="https://assets.balena.io/blog-common/2023/02/virtual-balenaos-9.png"  width="100%">
+<!-- ![Allocate resources](https://assets.balena.io/blog-common/2023/02/virtual-balenaos-9.png) -->
 
 You can see in the screenshot above, I am forwarding a USB modem from my MacBook, through to my VM and connecting to it within balenaOS. This allows me verify that a modem is working correctly from within the VM. Super handy for [writing OS tests]()!
 
