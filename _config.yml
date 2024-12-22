@@ -13,7 +13,6 @@ kramdown:
   syntax_highlighter: rouge
   input: GFM
 
-
 permalink: /:year/:month/:day/:title/
 
 mermaid:
@@ -36,22 +35,27 @@ projects:
   limit: 9
   exclude:
     archived: false
-    forks: false
+    forks: true
     projects:
     - test-fin
     - cookbook
 
 social_media:
-  twitter: AlexRBucknall
+  bluesky: bucknalla.dev
   linkedin: bucknalla
   scholar: XEkhqpkAAAAJ
-
 companies:
+  - name: Blues
+    web_url: https://blues.com
+    image_url: /assets/icons/blues-logo.png
+    description: Staff Developer Experience Engineer
+    date: 2024 - Present
+
   - name: Arribada
     web_url: https://arribada.org
     image_url: /assets/icons/arribada-logo.png
     description: Senior Software Engineer (Embedded)
-    date: 2023 - Present
+    date: 2023 - 2024
 
   - name: Balena
     web_url: https://balena.io
